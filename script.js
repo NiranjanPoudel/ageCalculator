@@ -21,9 +21,13 @@ function age() {
   var m = m2 - m1;
   var y = y2 - y1;
 
+  if (d >= 0 && m >= 0 && y >= 0){
+
   document.getElementById("age").innerHTML =
     "Your age is " + y + " years " + m + " months " + d + " days";
-    if(y >= 20){
-      "Ready for Your career!"
-    }
+  }
+  else{
+    document.getElementById('age').innerHTML = "Something went wrong!"
+  }
+  
 }

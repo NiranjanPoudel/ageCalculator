@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Age Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/nepali-date-picker.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="col-md-12">
+          <div class="base ">
+            <div class="enter">
+              <h4>Age Calculator</h4>
+            </div>
+            <div class="caption-field">
+            <h3> Confused about your age don't worry!</h3>
+            </div>
+            <div class="date-field">
+              <input type="text" id="dob" class="date-picker" data-single="true" placeholder="Select Date">
+            </div>
+          </div>
+          <div class="base">
+            <div class="enter">
+              <input type="button" value="Submit" onclick="age()" />
+            </div>
+          </div>
+          <div id="age"></div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="js/date-converter.js"></script>
+  <script src="script.js"></script>
+  <script src="./js/nepali-date-picker.js" type="text/javascript"></script>
+  <script type="text/javascript">
+   $(function(){
+      $('.date-picker').nepaliDatePicker();
+        maxDate: todayInNepaliDate() 
+    });
+    function todayInNepaliDate() {
+
+    const today = new NepaliDate();
+    const y = today.getYear();
+    const m = today.getMonth();
+    const d = today.getDate();
+    const todayFormatted = `${y}-${(m + 1).toString().padStart(2, '0')}-${d.toString().padStart(2, '0')}`;
+    return todayFormatted;
+  }
+</script>
+</html>
